@@ -56,7 +56,7 @@ class MutantControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.isMutant").value(true))
+                .andExpect(jsonPath("$.mutant").value(true))
                 .andExpect(jsonPath("$.message").exists());
     }
 
@@ -79,7 +79,7 @@ class MutantControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isForbidden())
-                .andExpect(jsonPath("$.isMutant").value(false))
+                .andExpect(jsonPath("$.mutant").value(false))
                 .andExpect(jsonPath("$.message").exists());
     }
 
